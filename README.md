@@ -85,7 +85,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Support and contact details
 For any inquiries or contributions please contact me on gmail gumatopricilla22@gmail.com
 licensing.
-pricilla/Gallery
+pricilla/personal gallery
 A web application that contain your photos,you can view,update or delete.User can also search for a photo.
 Language
 Python
