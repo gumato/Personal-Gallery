@@ -8,7 +8,7 @@ from .models import Image
 def mygallery(request):
     date = dt.date.today()
     photos = Image.get_all()
-    return render(request, 'all-pics/home.html', {"date": date, "photos":photos})
+    return render(request, 'all-photos/home.html', {"date": date, "photos":photos})
 
 def search_results(request):
 
@@ -18,10 +18,10 @@ def search_results(request):
         
         message = f"{search_term}"
 
-        return render(request, 'all-pics/search.html',{"message":message,"images": searched_images})
+        return render(request, 'all-photos/search.html',{"message":message,"images": searched_images})
 
     else:
         message = "You haven't searched for any Image Category"
-        return render(request, 'all-pics/search.html',{"message":message})
+        return render(request, 'all-photos/search.html',{"message":message})
      
     return render(request,'welcome.html',{"date": date})
