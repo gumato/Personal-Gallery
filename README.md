@@ -91,4 +91,4 @@ Language
 Python
 Last updated
 8 hours ago
-pricilla/GalleryMay 10thAdded by GitHub
+pricilla/personal gallery May 10th Added by GitHub
