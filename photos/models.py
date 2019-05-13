@@ -29,17 +29,16 @@ class Category(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='photo/')
-    image_name = models.CharField(max_length =20,blank=False)
-    image_description = models.TextField(max_length=80,blank=False)
+    image_name = models.CharField(max_length =20)
+    image_description = models.TextField(max_length=80)
     location = models.ForeignKey(Location)
     category = models.ManyToManyField(Category)
-    location = models.ForeignKey(Location)
     pub_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
        return self.image_name
     class Meta:
-        ordering = ["-comments_posts__timestamp","-comments_post__updated"]
+        ordering = ['pub_date']
 
     def save_image(self):
         self.save()
