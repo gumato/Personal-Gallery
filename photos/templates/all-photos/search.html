@@ -1,12 +1,12 @@
 {%extends 'all-photos/base.html'%} 
 {% block content %}
-<div class="container">
+<div style="padding-bottom:120px;padding-top:100px;"class="container-fluid">
 
   <div class="row">
     {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+      <h2 style="color:white; font-size:20px;">Found {{ images|length }} of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 images for the search term {{message}}</h2>
+      <h2 style="color:white;font-size:20px;"> Found 0 images for the search term {{message}}</h2>
     {% endif %}
 
   </div>
@@ -14,9 +14,11 @@
   <div class="row">
 
   {% if images %}
-    {% for image in images %}
+    {% for images_item in images %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{image.title}}</h1>
+        <a class="img-thumbnail" href="{{images_item.image.url}}" data-image-id="{{images_item.id}}" data-toggle="modal" data-target="#{{images_item.id}}">
+          <img src="{{images_item.image.url}}" alt="Image" id="img{{images_item.id}}" class="img-responsive" alt="image" style="height:300px; width: 300px;">
+      </a>     
       </div>
     {% endfor %}
   {% endif %}
