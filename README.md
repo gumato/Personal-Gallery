@@ -68,7 +68,7 @@ Admin  :
 ## Testing the Application
 * To run the tests for the class files:
 
-       $ python3.6 manage.py test images
+       $ python3.6 manage.py test
 
 ## Technologies Used
 * Python3.6
