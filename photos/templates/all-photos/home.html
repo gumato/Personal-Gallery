@@ -4,6 +4,14 @@
 <h1> Welcome to my Gallery</h1>
 {% for images in images %}
 <img src="images.image.url" alt="image">
+<div class="col-md-12 text">
+    <h3>{{image.name}}</h3>
+    <p>{{image.description}}</p>
+    <p>{{image.pub_date}}</p>
+    <p>{{image.location}}</p>
+    <p>{{image.category}}</p>
+
+</div>
 {% endfor%}
 {{block.super}}
 {% endblock %}
