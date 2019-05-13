@@ -47,8 +47,8 @@ Admin  :
 ### Cloning
 * In your terminal:
 
-       $ git clone https://github.com/mwaiyu/gallery
-       $ cd gallery
+       $ git clone https://github.com/gumato/Personal-Gallery
+       $ cd personal-gallery
 
 ## Running the Application
 * Creating the virtual environment

@@ -1,0 +1,9 @@
+{% extends 'all-photos/base.html' %}
+
+{% block content %}
+{% for post in images %}
+
+<div class="col-md-3">
+  <img src="{{post.image.url }}" alt="" width="300" height="300">
+{% endfor %}
+{% endblock %}

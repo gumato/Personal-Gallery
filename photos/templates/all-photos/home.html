@@ -1,5 +1,9 @@
 {%extends 'all-photos/base.html'%}
 
 {% block content %}
+<h1> Welcome to my Gallery</h1>
+{% for images in images %}
+<img src="images.image.url" alt="image">
+{% endfor%}
 {{block.super}}
 {% endblock %}
