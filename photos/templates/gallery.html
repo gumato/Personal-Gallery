@@ -1,55 +1,57 @@
 {% extends 'all-photos/base.html' %}
 
 {% block content %}
-{% for post in images %}
-<!-- <div class="col-md-12 text"> -->
-        <h3>{{image.name}}</h3>
-        <p>{{image.description}}</p>
-        <p>{{image.pub_date}}</p>
-        <p>{{image.location}}</p>
-        <p>{{image.category}}</p>
-    
-<!-- </div> -->
-<div class="row">
-<div class="col-md-3">
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#exampleModalLong">
-        <img src="{{post.image.url }}" alt="" width="300" height="300">
-        <p> {{ post.image_name }}</p>
-      </button>
-  </div>
-  <!-- Button trigger modal -->
-  {% endfor %}
+{{block.super}}
 
-  
+<div class="container-fluid">
+    <!-- displaying images -->
+    <div class="row">
+        {% for post in images %}
 
-<!-- Modal -->
-{% for post in images %}
-<div class="modal fade" id="exampleModalLong" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+        <div class="col-md-3">
+            <!-- modal button -->
+            <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#myModal{{post.id}}">
                 <img src="{{post.image.url }}" alt="" width="300" height="300">
-              </button>
-            </div>
-            <div class="modal-body">
-                  <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
-                    <p>About: {{image.description}}</p>
-                    <p>Location: {{image.location}}</p>
-             
-                    {% for category in image.categories.all %}
-                    <p> Category: {{ category.name }} </p>
-                    {% endfor %}
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <p style="font-family: 'Permanent Marker', cursive;">{{ post.image_name }}</p>
+            </button>
+            <br>
+            <br>
 
-            </div>
-          </div>
+            <!-- modal -->
         </div>
-      </div>
 
+
+        {% endfor %}
+    </div>
+</div>
+
+{% for post in images %}
+<!-- modal content -->
+<div class="modal" id="myModal{{post.id}}" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <img src="{{post.image.url }}" alt="" width="500" height="500">
+                <h4 class="modal-title">{{ post.image_description }}</h4>
+            </div>
+
+            <div class="modal-body">
+                {% for category in post.image_category.all %}
+                <p class="xx" style="font-family: 'Modak', cursive;" >Category: {{ category.name }}</p>
+                <p>Location: {{ post.image_location }}</p>
+                {% endfor %}
+            </div>
+
+
+            <div class="modal-footer">
+                <input type="text" id="imageLink" value="127.0.0.1:8000/images/photo/{{post.image.url }}">
+                <button onclick="copyImage()">Copy Link</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endfor %}
-{% endblock %}
+{% endblock%}
